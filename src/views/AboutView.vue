@@ -17,7 +17,7 @@ export default {
 
     onMounted(async () => {
       try {
-        const response = await fetch('http://localhost:2506/api/v1/users')
+        const response = await fetch('https://backend-airbnb-fdtp.onrender.com/api/v1/users')
         const data = await response.json()
         characters.value = data
       } catch (error) {
@@ -25,7 +25,7 @@ export default {
       } finally {
         setTimeout(() => {
           loading.value = false
-        }, 3000);
+        }, 1000);
       }
     })
 
