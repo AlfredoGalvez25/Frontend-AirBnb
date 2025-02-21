@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue'
+
+
 defineProps({
     Location: String,
     Distance: String,
@@ -7,6 +10,24 @@ defineProps({
     Img: String,
     msg: String
 })
+
+function formatearPrecio(precio, currency) {
+    return new Intl.NumberFormat('es-MX', { 
+        style: 'currency', 
+        currency 
+    }).format(precio) + ' ' + currency
+}
+function formatearMiles(numero) {
+    return new Intl.NumberFormat('es-MX', { 
+        maximumSignificantDigits: 3 
+    }).format(numero)
+}
+
+defineExpose({
+    formatearPrecio,
+    formatearMiles
+})
+
 </script>
 
 <template>
@@ -32,7 +53,7 @@ defineProps({
             </div>
             <div>
                 <span>
-                    A {{ Distance }} km de distancia
+                    A {{ formatearMiles(Distance) }} km de distancia
                 </span>
             </div>
             <div>
@@ -43,7 +64,7 @@ defineProps({
             <div>
                 <span>
                     <strong>
-                        ${{ PricePNigth }} MXN
+                        {{ formatearPrecio(PricePNigth, 'MXN') }} 
                     </strong>
                     noche
                 </span>
@@ -57,6 +78,7 @@ defineProps({
 .imagen{
   width: 322px;
   height: 306px;
+  margin-bottom: 10px;
 }
 
 .imagen>img {
