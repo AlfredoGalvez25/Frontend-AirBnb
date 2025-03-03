@@ -13,3 +13,13 @@ import Header from './components/Header.vue'
   <RouterView />
 
 </template>
+
+
+<style scoped>
+
+header{
+  position: sticky;
+  top: 0;
+  background: white;
+}
+</style>

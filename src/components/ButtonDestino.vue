@@ -11,13 +11,11 @@ defineProps({
 
 <template>
 
-  <div>
-    <font-awesome-icon icon="bars" />
-  </div>
-  <div style="padding-left: 12px;">
-    <IconProfile :class="LogoColor"/>
-  </div>
-
+    <div style="width: 32px;">
+        <a>
+            <IconProfile :class="LogoColor"/>
+        </a>
+    </div>
     
     
 </template>

@@ -1,14 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const fallbackImg = '/src/assets/imagenError.jpg'
 
-defineProps({
-    Location: String,
+const router = useRouter()
+
+const props = defineProps({
+    id: String,
+    locationName: String,
     Distance: String,
     PricePNigth: String,
     Stars: String,
     Img: String,
-    msg: String
+    msg: { type: String, default: '' } // 🔹 Evita que msg sea undefined
 })
 
 function formatearPrecio(precio, currency) {
@@ -17,35 +21,54 @@ function formatearPrecio(precio, currency) {
         currency 
     }).format(precio) + ' ' + currency
 }
+
 function formatearMiles(numero) {
     return new Intl.NumberFormat('es-MX', { 
         maximumSignificantDigits: 3 
     }).format(numero)
 }
 
+function reemplazarImagen(event) {
+    event.target.src = fallbackImg
+}
+
+function handleClick() {
+
+    router.push({
+        name: 'Detalles',
+        params: {
+            id: props.id
+        }
+    })
+}
+
 defineExpose({
     formatearPrecio,
-    formatearMiles
+    formatearMiles,
+    reemplazarImagen,
+    handleClick
 })
-
 </script>
 
 <template>
-    <div class="tarjeta">
-
+    <div class="tarjeta" @click="handleClick">
         <div class="imagen">
-            <img :src="Img" :alt="`Imagen de ${Location}`">
+            <img :src="Img" :alt="`Imagen de ${locationName}`"
+            draggable="false"
+            @error="reemplazarImagen"
+            >
         </div>
         <div class="datos">
             <div>
                 <div>
                     <strong>
                         <span>
-                            {{ Location }}
+                            {{ locationName }}
                         </span>
                     </strong>
                 </div>
-                <div>
+                <div class="stars">
+                    <font-awesome-icon icon="star" />
                     <span>
                         {{ Stars }}
                     </span>
@@ -70,27 +93,34 @@ defineExpose({
                 </span>
             </div>
         </div>
-
     </div>
 </template>
 
 <style scoped>
+.stars{
+    display: flex;
+    margin-left: 8px;
+    margin-right: 10px;
+    flex-direction: row;
+}
+
 .imagen{
-  width: 322px;
-  height: 306px;
-  margin-bottom: 10px;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px;
 }
 
 .imagen>img {
-  width: 322px;
-  height: 306px;
-  border-radius: 20px;
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
 }
 
 .datos {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .datos> :first-child {
@@ -101,11 +131,9 @@ defineExpose({
 }
 
 .tarjeta {
-  border: 1px solid #ddd;
+  width: 250px;
   padding: 10px;
   margin: 10px;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  width: 322px;
+  border-radius: 10px;
 }
 </style>

@@ -1,6 +1,7 @@
 :root {
   --Rosa: #FF385C;
   --Gris: rgba(106, 106, 106, 1);
+  --BorderGray: #DFDFDF;
 }
 
 @font-face {
@@ -12,6 +13,8 @@
 
 * {
   font-family: OficialFont;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -21,7 +24,16 @@ header {
 
 main {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main__body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .Rosa {
@@ -30,4 +42,8 @@ main {
 
 .Gris {
   color: var(--Gris);
+}
+
+.borderGray {
+  border: 1px solid #B7B7B7;
 }
