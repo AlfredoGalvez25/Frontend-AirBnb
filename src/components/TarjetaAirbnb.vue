@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 
-const fallbackImg = '/src/assets/imagenError.jpg'
+const fallbackImg = 'https://demofree.sirv.com/nope-not-here.jpg'
 
 const router = useRouter()
 
@@ -12,7 +12,7 @@ const props = defineProps({
     PricePNigth: String,
     Stars: String,
     Img: String,
-    msg: { type: String, default: '' } // 🔹 Evita que msg sea undefined
+    msg: { type: String, default: '' }
 })
 
 function formatearPrecio(precio, currency) {
