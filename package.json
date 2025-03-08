@@ -7,6 +7,7 @@
     "dev": "vite --mode development",
     "start": "vite --mode production",
     "build": "vite build --mode production",
+    "build-dev": "vite build --mode development && copy .htaccess dist\\.htaccess",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,13 +15,13 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.0.11",
-    "vite-plugin-vue-devtools": "^7.7.0",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/free-regular-svg-icons": "6.7.2",
-    "@fortawesome/free-solid-svg-icons": "6.7.2",
-    "@fortawesome/vue-fontawesome": "3.0.8"
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "3.0.8",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.11",
+    "vite-plugin-vue-devtools": "^7.7.0"
   }
 }

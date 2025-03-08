@@ -1,7 +1,10 @@
 :root {
   --Rosa: #FF385C;
+  --RosaHover: rgba(199, 45, 73, 0.767);
+  --GrisHover: #EBEBEB;
   --Gris: rgba(106, 106, 106, 1);
-  --BorderGray: #DFDFDF;
+  --BorderGray: #CFCBCB;
+  --Fondo: #FFF;
 }
 
 @font-face {
@@ -46,4 +49,27 @@ main {
 
 .borderGray {
   border: 1px solid #B7B7B7;
+}
+
+
+
+
+.d-flex {
+  display: flex;
+}
+
+.fd-column {
+  flex-direction: column;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.jc-spacebetween {
+  justify-content: space-between;
+}
+
+.jc-center {
+  justify-content: center;
 }

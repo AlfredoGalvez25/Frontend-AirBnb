@@ -8,11 +8,12 @@
     <TarjetaAirbnb v-else
       v-for="character in characters"
       :id="character.id"
-      :locationName="character.Location"
-      :Distance="character.Distance"
-      :PricePNigth="character.PricePNigth"
-      :Stars="character.Stars"
-      :Img="character.Img"
+      :locationName="character.locationName"
+      :distance="character.distance"
+      :pricePNigth="character.pricePNigth"
+      :stars="character.stars"
+      :img="character.img"
+      :dates="character.dates"
       :msg="character.msg"
     />
     
@@ -43,6 +44,7 @@ export default {
         const resp = await fetch(URL)
         const data = await resp.json()
         characters.value = data
+        
       } catch (error) {
         console.log('Error al cargar la información:', error)
       } finally {

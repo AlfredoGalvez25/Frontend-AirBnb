@@ -2,7 +2,8 @@
 import IconHeader from './icons/IconAirBnb.vue'
 import ButtonProfile from './ButtonProfile.vue'
 import NavAlojamientosExperiencias from './NavAlojamientosExperiencias.vue'
-import ButtonDestino from './ButtonDestino.vue'
+import ButtonsDesCheckInOutGuests from './ButtonsDesCheckInOutGuests.vue'
+import ButtonLogin from './ButtonLogin.vue'
 
 defineProps({
   LogoColor: {
@@ -14,34 +15,37 @@ defineProps({
 
 <template>
 
-  <div class="header">
+  <div>
 
-    <!-- <div> -->
+    <div class="header">
+
       <div>
         <IconHeader :class="LogoColor"/>
       </div>
-      <div>
+
+      <div style="margin-left: 145px;">
         <NavAlojamientosExperiencias/>
       </div>
-      <div class="profileHamburger borderGray">
-        <ButtonProfile/>
-      </div>
-    <!-- </div> -->
 
-    <!-- <div>
-      <button>
-      1
-      </button>
-      <button>
-      2
-      </button>
-      <button>
-      3
-      </button>
-      <button>
-      4
-      </button>
-    </div> -->
+      <div class="d-flex ai-center">
+
+        <div class="login">
+          <ButtonLogin/>
+        </div>
+
+        <div class="language">
+          <font-awesome-icon icon="globe" />
+        </div>
+
+        <div class="profileHamburger borderGray">
+          <ButtonProfile/>
+        </div>
+
+      </div>
+
+    </div>
+
+    <ButtonsDesCheckInOutGuests/>
 
   </div>
     
@@ -54,6 +58,25 @@ defineProps({
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.login{
+  padding: 10px;
+}
+
+.login:hover{
+  background-color: var(--GrisHover);
+  border-radius: 24px;
+}
+
+.language{
+  padding: 10px;
+}
+
+.language:hover{
+  background-color: var(--GrisHover);
+  border-radius: 24px;
 }
 
 .profileHamburger{

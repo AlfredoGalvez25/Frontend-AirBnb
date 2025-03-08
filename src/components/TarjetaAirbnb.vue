@@ -7,15 +7,23 @@ const router = useRouter()
 
 const props = defineProps({
     id: String,
-    locationName: String,
-    Distance: String,
-    PricePNigth: String,
-    Stars: String,
-    Img: String,
+    locationName: { type: String, default: 'N/A' },
+    distance: { type: String, default: 'N/A' },
+    pricePNigth: { type: String, default: 'N/A' },
+    stars: { type: String, default: 'N/A' },
+    img: String,
+    titulo: { type: String, default: 'N/A' },
+    dates: { type: String, default: 'N/A' },
+    subTitulo: { type: String, default: 'N/A' },
+    huespedes: { type: String, default: 'N/A' },
+    habitaciones: { type: String, default: 'N/A' },
+    camas: { type: String, default: 'N/A' },
+    baños: { type: String, default: 'N/A' },
     msg: { type: String, default: '' }
 })
 
 function formatearPrecio(precio, currency) {
+    
     return new Intl.NumberFormat('es-MX', { 
         style: 'currency', 
         currency 
@@ -53,7 +61,7 @@ defineExpose({
 <template>
     <div class="tarjeta" @click="handleClick">
         <div class="imagen">
-            <img :src="Img" :alt="`Imagen de ${locationName}`"
+            <img :src="img" :alt="`Imagen de ${locationName}`"
             draggable="false"
             @error="reemplazarImagen"
             >
@@ -70,24 +78,24 @@ defineExpose({
                 <div class="stars">
                     <font-awesome-icon icon="star" />
                     <span>
-                        {{ Stars }}
+                        {{ stars }}
                     </span>
                 </div>
             </div>
             <div>
                 <span>
-                    A {{ formatearMiles(Distance) }} km de distancia
+                    A {{ formatearMiles(distance) }} km de distancia
                 </span>
             </div>
             <div>
                 <span>
-                1-6 de mar
-            </span>
+                {{ dates }}
+                </span>
             </div>
             <div>
                 <span>
                     <strong>
-                        {{ formatearPrecio(PricePNigth, 'MXN') }} 
+                        {{ formatearPrecio(pricePNigth, 'MXN') }} 
                     </strong>
                     noche
                 </span>

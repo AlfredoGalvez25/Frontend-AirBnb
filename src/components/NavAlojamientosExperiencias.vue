@@ -1,5 +1,4 @@
 <script setup>
-import IconProfile from './icons/IconProfile.vue'
 
 defineProps({
   LogoColor: {
@@ -11,28 +10,26 @@ defineProps({
 
 <template>
 
-    <div style="width: 15em;">
-      <div class="nav">
-        <strong>
-          Estancias
-        </strong>
+  <div class="nav">
+    <strong>
+      Alojamientos
+    </strong>
+  </div>
 
-        <strong>
-          Experiencias
-        </strong>
+  <div>
+    <strong>
+      Experiencias
+    </strong>
 
-      </div>
-
-    </div>
-    
+  </div>
+   
     
 </template>
 
 <style scoped>
 .nav{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  
+  justify-content: space-evenly;
+  width: 250px;
 }
 </style>
