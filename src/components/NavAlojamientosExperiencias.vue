@@ -10,26 +10,18 @@ defineProps({
 
 <template>
 
-  <div class="nav">
-    <strong>
-      Alojamientos
-    </strong>
-  </div>
-
-  <div>
-    <strong>
-      Experiencias
-    </strong>
-
-  </div>
-   
+  <strong style="padding-right: 35px;">
+    Alojamientos
+  </strong>
+  <strong>
+    Experiencias
+  </strong>
     
 </template>
 
 <style scoped>
-.nav{
-  display: flex;
-  justify-content: space-evenly;
-  width: 250px;
+
+strong{
+  cursor: pointer;
 }
 </style>

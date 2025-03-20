@@ -1,25 +1,28 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import Header from './components/Header.vue'
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import MainLayout from './layouts/MainLayout.vue';
+import AuthLayout from './layouts/AuthLayout.vue';
+
+const route = useRoute()
+
+const layout = computed(() => {
+  return route.meta.layout === 'auth' ? AuthLayout : MainLayout
+})
 
 </script>
 
 <template>
   
-  <header>
-    <Header/>
-  </header>
+  <component :is="layout">
+    <RouterView />
+  </component>
 
-  <RouterView />
 
 </template>
 
 
 <style scoped>
 
-header{
-  position: sticky;
-  top: 0;
-  background: white;
-}
+
 </style>

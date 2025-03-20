@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from 'vue-router'
 
 defineProps({
   LogoColor: {
@@ -10,14 +11,16 @@ defineProps({
 
 <template>
 
-  <div>
+  <RouterLink to="/login">
     Pon tu casa en Airbnb
-  </div>
+  </RouterLink>
 
     
     
 </template>
 
 <style scoped>
-
+a.router-link-exact-active:hover{
+  background-color: transparent;
+}
 </style>

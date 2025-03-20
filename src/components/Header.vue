@@ -1,4 +1,5 @@
 <script setup>
+
 import IconHeader from './icons/IconAirBnb.vue'
 import ButtonProfile from './ButtonProfile.vue'
 import NavAlojamientosExperiencias from './NavAlojamientosExperiencias.vue'
@@ -23,7 +24,7 @@ defineProps({
         <IconHeader :class="LogoColor"/>
       </div>
 
-      <div style="margin-left: 145px;">
+      <div class="nav">
         <NavAlojamientosExperiencias/>
       </div>
 
@@ -59,6 +60,12 @@ defineProps({
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
+}
+
+.nav{
+  margin-left: 145px;
+  display: flex;
+  
 }
 
 .login{
