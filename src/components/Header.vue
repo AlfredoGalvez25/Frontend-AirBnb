@@ -12,6 +12,7 @@ defineProps({
     default: "Rosa",
   },
 })
+
 </script>
 
 <template>
