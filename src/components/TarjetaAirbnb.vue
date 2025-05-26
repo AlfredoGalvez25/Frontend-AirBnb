@@ -60,46 +60,51 @@ defineExpose({
 
 <template>
     <div class="tarjeta" @click="handleClick">
-        <div class="imagen">
-            <img :src="img" :alt="`Imagen de ${locationName}`"
-            draggable="false"
-            @error="reemplazarImagen"
-            >
-        </div>
-        <div class="datos">
-            <div>
+        <div>
+            <div class="imagen">
+                <img 
+                    :src="img || fallbackImg" 
+                    :alt="`Imagen de ${locationName}`"
+                    draggable="false"
+                    @error="reemplazarImagen"
+                >
+            </div>
+            <div class="datos">
                 <div>
-                    <strong>
+                    <div>
+                        <strong>
+                            <span>
+                                {{ locationName }}
+                            </span>
+                        </strong>
+                    </div>
+                    <div class="stars">
+                        <font-awesome-icon icon="star" />
                         <span>
-                            {{ locationName }}
+                            {{ stars }}
                         </span>
-                    </strong>
+                    </div>
                 </div>
-                <div class="stars">
-                    <font-awesome-icon icon="star" />
+                <div>
                     <span>
-                        {{ stars }}
+                        A {{ formatearMiles(distance) }} km de distancia
+                    </span>
+                </div>
+                <div>
+                    <span>
+                    {{ dates }}
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <strong>
+                            {{ formatearPrecio(pricePNigth, 'MXN') }} 
+                        </strong>
+                        noche
                     </span>
                 </div>
             </div>
-            <div>
-                <span>
-                    A {{ formatearMiles(distance) }} km de distancia
-                </span>
-            </div>
-            <div>
-                <span>
-                {{ dates }}
-                </span>
-            </div>
-            <div>
-                <span>
-                    <strong>
-                        {{ formatearPrecio(pricePNigth, 'MXN') }} 
-                    </strong>
-                    noche
-                </span>
-            </div>
+
         </div>
     </div>
 </template>
@@ -143,5 +148,9 @@ defineExpose({
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  
+}
+.tarjeta > div {
+    cursor: pointer;
 }
 </style>

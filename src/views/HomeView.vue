@@ -1,20 +1,23 @@
+<style scoped>
+.contenedor-tarjetas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>
 <template>
   <main>
-    <div v-if="loading" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center">
+    <div v-if="loading" 
+    class="contenedor-tarjetas">
       <TarjetaSkeleton v-for="n in 18" :key="n" />
     </div>
     
     
     <TarjetaAirbnb v-else
       v-for="character in characters"
-      :id="character.id"
-      :locationName="character.locationName"
-      :distance="character.distance"
-      :pricePNigth="character.pricePNigth"
-      :stars="character.stars"
-      :img="character.img"
-      :dates="character.dates"
-      :msg="character.msg"
+      :key="character.id"
+      v-bind="character"
     />
     
   </main>

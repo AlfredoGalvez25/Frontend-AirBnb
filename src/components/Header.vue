@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from 'vue-router'
 
 import IconHeader from './icons/IconAirBnb.vue'
 import ButtonProfile from './ButtonProfile.vue'
@@ -6,7 +7,7 @@ import NavAlojamientosExperiencias from './NavAlojamientosExperiencias.vue'
 import ButtonsDesCheckInOutGuests from './ButtonsDesCheckInOutGuests.vue'
 import ButtonLogin from './ButtonLogin.vue'
 
-defineProps({
+const props = defineProps({
   LogoColor: {
     type: String,
     default: "Rosa",
@@ -20,9 +21,11 @@ defineProps({
 
     <div class="header">
 
-      <div>
-        <IconHeader :class="LogoColor"/>
-      </div>
+      <RouterLink to="/">
+        <div>
+          <IconHeader :class="LogoColor"/>
+        </div>
+      </RouterLink>
 
       <div class="nav">
         <NavAlojamientosExperiencias/>
